@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>נחש את המספר</h1>
+    <p>הוגרל מספר רנדומלי מ: 1 - 1000</p>
+    <input type="number" id="num">
+    <button id="send">בדוק מספר</button>
+</body>
+<script>
+    let randomNum = Math.floor(Math.random() * 1000) + 1;
+    console.log(randomNum);
+    let num = document.querySelector("#num");
+    let send = document.querySelector("#send");
+    // let msg = "";
+    let text = document.createElement("p");
+    document.body.appendChild(text);
+    send.addEventListener("click", () => {
+        if (num.value > randomNum)
+            text.textContent = "הכנסת מספר גדול יותר מהמספר המוגרל";
+        else if (num.value < randomNum)
+            text.textContent = "הכנסת מספר קטן יותר מהמספר המוגרל";
+        else {
+            num.remove();
+            send.remove();
+            text.remove();
+            let h2 = document.createElement("h2");
+            h2.textContent = "🎉🎊 ניצחון!!! ";
+            document.body.appendChild(h2);
+        }
+
+    })
+
+</script>
+
+</html>
